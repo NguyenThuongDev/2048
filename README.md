@@ -1,2 +1,4 @@
 # 2048
-2048 game in JavaScript
+
+## Description
+2048 game in vanilla JavaScript base on [Web Dev Simplified tutorials](https://youtu.be/wOVEe9eawXc).
