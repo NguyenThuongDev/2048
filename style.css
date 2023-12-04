@@ -33,6 +33,10 @@ body {
 }
 
 .tile {
+    /* --x: 0;
+    --y: 1;
+    --background-lightness: 20%;
+    --text-lightness: 80%; */
     position: absolute;
     display: flex;
     justify-content: center;
@@ -40,4 +44,19 @@ body {
     width: var(--cell-size);
     height: var(--cell-size);
     background-color: #f00;
+    border-radius: 1vmin;
+    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    font-weight: bold;
+    background-color: hsl(200, 50%, var(--background-lightness));
+    color: hsl(200, 25%, var(--text-lightness));
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+    0% {
+        opacity: .5;
+        transform: scale(0);
+    }
 }
