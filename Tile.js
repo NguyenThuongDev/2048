@@ -2,6 +2,7 @@ export default class Tile {
     #tileElement;
     #x;
     #y;
+    #value;
 
     constructor(tileContainer, value = Math.random() > .5 ? 2 : 4) {
         this.#tileElement = document.createElement('div');
@@ -9,6 +10,21 @@ export default class Tile {
         tileContainer.append(this.#tileElement);
         this.value = value;
     };
+
+    set value(v) {
+        this.#value = v;
+        this.#tileElement.textContent = v;
+        const power = Math.log2(v);
+        const backgroundLightness = 100 - power * 9;
+        this.#tileElement.style.setProperty(
+            '--background-lightness',
+            `${backgroundLightness}%`
+        );
+        this.#tileElement.style.setProperty(
+            '--text-lightness',
+            `${backgroundLightness <= 50 ? 90 : 10}%`
+        );
+    }
 
     set x(value) {
         this.#x = value;
